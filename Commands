@@ -1,0 +1,19 @@
+#Used VS code to build run and push the image
+
+#First we create the python program file named main.py
+#Similarly created Dockerfile, sai.txt(read by program to count the repeated words)
+
+#The commands for docker will be;
+
+docker pull python        #We first pull the base image
+docker build -t my-counter .      #We build a new image named "my-counter"
+
+#We can check the images by giving command
+docker images
+
+docker run -dit my-counter        #We run the image 
+docker commit a96b230c08c5 saicharanj/myapp:new       #a96b230c08c5 is the ID of Image my-counter
+docker push saicharanj/myapp:new        #We push the image to docker public repository
+
+#To pull this image use the command
+docker pull saicharanj/myapp:new        #new is the tag given
